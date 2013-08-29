@@ -1,1 +1,152 @@
-{% extends "bootstrap_responsive.html" %}
+{% extends "bootstrap_base.html" %}
+{%- block head %}
+{{ super() }}
+<script type="text/javascript">
+	//WARNING: when compiling and NOT using js watch, MUST use -strict-math=on
+	//or else elliptic border radius for page curl will break! 
+	less = {
+		strictMath: true
+	};
+</script>
+<script src="static/less-min.js" type="text/javascript"></script>
+{%- endblock %}
+{%- block style %}
+{{ super() }}
+<link href="{{'static/application.less'}}" type="text/css" rel="stylesheet/less">
+<link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css">
+{% endblock %}
+{%- block body_content %}
+<header>
+	<div class="container">
+		<div class="masthead">
+			<div class="pull-right">
+				<form id="login-form" class="form-inline" method="post" action="/login">
+				    <input type="text" id="username" placeholder="Username" class="input-small">
+				    <input type="text" id="password" placeholder="Password" class="input-small">
+				    <button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<h1 class="logo">Footnotr</h1>
+			<small class="muted"><em>The Social PDF Annotator</em></small>
+			<hr>
+		</div>
+	</div>
+</header>
+<div class="fluid-container">
+	<div class="span4 drop-shadow" id="left-column">
+		<ul class="unstyled">
+			<li class="quote-summary">
+				<div class="quote-slug">
+					<h4><span>Quote Slug Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></h4>
+					<cite><i>From: Article Title</i></cite>
+				</div>
+				<div class="comment-slug">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ipsam libero assumenda.</div>
+			</li>
+			<li class="quote-summary">
+				<div class="quote-slug">
+					<h4><span>Quote Slug Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></h4>
+					<cite><i>From: Article Title</i></cite>
+				</div>
+				<div class="comment-slug">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ipsam libero assumenda.</div>
+			</li>
+			<li class="quote-summary">
+				<div class="quote-slug">
+					<h4><span>Quote Slug Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></h4>
+					<cite><i>From: Article Title</i></cite>
+				</div>
+				<div class="comment-slug">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ipsam libero assumenda.</div>
+			</li>
+			<li class="quote-summary">
+				<div class="quote-slug">
+					<h4><span>Quote Slug Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></h4>
+					<cite><i>From: Article Title</i></cite>
+				</div>
+				<div class="comment-slug">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ipsam libero assumenda.</div>
+			</li>
+		</ul>
+	</div>
+	<div class="span12 drop-shadow curled" id="right-column"><div class="quote-detail">
+		<blockquote>
+			<h1 class="text-center"><i class="icon-quote-left pull-left"></i> The Quote from the article Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, molestias eos iure aut a laudantium corporis quis? Obcaecati, vel, nam! <i class="icon-quote-right pull-right"></i></h1>
+			<cite>Article Title </cite>
+		</blockquote>	
+		<div class="comment-thread">
+			<div class="comment-cont">
+				<div class="user-info">
+					<p class="username"><a href="#">Username</a> said:</p>
+				</div>
+				<div class="comment">
+					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
+				</div>
+			</div>
+			<div class="comment-cont">
+				<div class="user-info">
+					<p class="username"><a href="#">Username</a> said:</p>
+				</div>
+				<div class="comment">
+					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
+				</div>
+			</div>
+			<div class="comment-cont">
+				<div class="user-info">
+					<p class="username"><a href="#">Username</a> said:</p>
+				</div>
+				<div class="comment">
+					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, quidem hic ducimus natus modi iste laboriosam eligendi facere repellat.</p>
+				</div>
+			</div>
+			<div class="comment-cont">
+				<div class="user-info">
+					<p class="username"><a href="#">Username</a> said:</p>
+				</div>
+				<div class="comment">
+					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
+				</div>
+			</div>
+			<div class="comment-cont">
+				<div class="user-info">
+					<p class="username"><a href="#">Username</a> said:</p>
+				</div>
+				<div class="comment">
+					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
+				</div>
+			</div>
+			<div class="comment-cont">
+				<div class="user-info">
+					<p class="username"><a href="#">Username</a> said:</p>
+				</div>
+				<div class="comment">
+					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
+				</div>
+			</div>
+			<div class="comment-cont">
+				<div class="user-info">
+					<p class="username"><a href="#">Username</a> said:</p>
+				</div>
+				<div class="comment">
+					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, quidem hic ducimus natus modi iste laboriosam eligendi facere repellat.</p>
+				</div>
+			</div>
+			<div class="comment-cont">
+				<div class="user-info">
+					<p class="username"><a href="#">Username</a> said:</p>
+				</div>
+				<div class="comment">
+					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<hr />
+		<p class="footer-text pull-right">Copyright 2013</p>
+	</div>
+</footer>
+
+
+{% endblock %}
+
+{% block style_navbar_padding %}
+{% endblock %}

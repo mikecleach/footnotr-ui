@@ -4,7 +4,19 @@ from forms import LoginForm
 
 @app.route('/')
 def index():
-	return render_template('base.html')
+	#import pdb; pdb.set_trace()
+	return render_template('user_list.html')
+
+@app.route('/user-comments/<int:user_id>/')
+def user_comments(user_id):
+	#import pdb; pdb.set_trace()
+	return render_template('user_comments.html', user_id=user_id)
+
+@app.route('/user-comments/<username>/')
+def user_comments_by_name(username):
+	#import pdb; pdb.set_trace()
+
+	return render_template('user_comments.html', user_id=username)
 
 
 @lm.user_loader

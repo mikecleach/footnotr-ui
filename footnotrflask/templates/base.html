@@ -8,145 +8,22 @@
 		strictMath: true
 	};
 </script>
-<script src="static/less-min.js" type="text/javascript"></script>
-<script src="static/jquery.js" type="text/javascript"></script>
-<script src="static/underscore.js" type="text/javascript"></script>
-<script src="static/backbone.js" type="text/javascript"></script>
-<script src="static/application.js" type="text/javascript"></script>
-<script>
-	
-$(document).ready(function(){
-
-	var quotesList = new QuoteSlugs([
-		new Annotation(),
-		new Annotation(),
-		new Annotation(),
-		new Annotation(),
-		new Annotation()
-	]);
-
-	var quoteSlugList = new QuoteSlugListView({ collection: quotesList });
-
-	quoteSlugList.render();
-
-});
-
-</script>
+<script src="/static/less-min.js" type="text/javascript"></script>
+<script src="/static/jquery.js" type="text/javascript"></script>
+<script src="/static/underscore.js" type="text/javascript"></script>
+<script src="/static/backbone.js" type="text/javascript"></script>
+<script src="/static/backbone-relational.js" type="text/javascript"></script>
+<script src="/static/application.js" type="text/javascript"></script>
 {%- endblock %}
 {%- block style %}
 {{ super() }}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="{{'static/application.less'}}" type="text/css" rel="stylesheet/less">
-<link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css">
+<link href="{{'/static/application.less'}}" type="text/css" rel="stylesheet/less">
+<link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
 {% endblock %}
+
+
 {%- block body_content %}
-<header>
-	<div class="container">
-		<div class="masthead">
-			<div class="pull-right">
-				<form id="login-form" class="form-inline" method="post" action="/login">
-				    <input type="text" id="username" placeholder="Username" class="input-small">
-				    <input type="text" id="password" placeholder="Password" class="input-small">
-				    <button type="submit" class="btn btn-primary">Submit</button>
-				</form>
-			</div>
-			<h1 class="logo">Footnotr</h1>
-			<small class="muted"><em>The Social PDF Annotator</em></small>
-			<hr>
-		</div>
-	</div>
-</header>
-<div class="fluid-container">
-	<div class="span4 drop-shadow" id="left-column">
-		<ul class="unstyled" id="quote-summaries">
-		</ul>
-	</div>
-	<div class="span8 drop-shadow curled" id="right-column"><div class="quote-detail">
-		<blockquote>
-			<h1 class="text-center"><i class="icon-quote-left pull-left"></i> The Quote from the article Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, molestias eos iure aut a laudantium corporis quis? Obcaecati, vel, nam! <i class="icon-quote-right pull-right"></i></h1>
-			<cite>Article Title </cite>
-		</blockquote>	
-		<div class="comment-thread">
-			<div class="comment-cont">
-				<div class="user-info">
-					<p class="username"><a href="#">Username</a> said:</p>
-				</div>
-				<div class="comment">
-					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
-				</div>
-			</div>
-			<div class="comment-cont">
-				<div class="user-info">
-					<p class="username"><a href="#">Username</a> said:</p>
-				</div>
-				<div class="comment">
-					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
-				</div>
-			</div>
-			<div class="comment-cont">
-				<div class="user-info">
-					<p class="username"><a href="#">Username</a> said:</p>
-				</div>
-				<div class="comment">
-					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, quidem hic ducimus natus modi iste laboriosam eligendi facere repellat.</p>
-				</div>
-			</div>
-			<div class="comment-cont">
-				<div class="user-info">
-					<p class="username"><a href="#">Username</a> said:</p>
-				</div>
-				<div class="comment">
-					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
-				</div>
-			</div>
-			<div class="comment-cont">
-				<div class="user-info">
-					<p class="username"><a href="#">Username</a> said:</p>
-				</div>
-				<div class="comment">
-					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
-				</div>
-			</div>
-			<div class="comment-cont">
-				<div class="user-info">
-					<p class="username"><a href="#">Username</a> said:</p>
-				</div>
-				<div class="comment">
-					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
-				</div>
-			</div>
-			<div class="comment-cont">
-				<div class="user-info">
-					<p class="username"><a href="#">Username</a> said:</p>
-				</div>
-				<div class="comment">
-					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, quidem hic ducimus natus modi iste laboriosam eligendi facere repellat.</p>
-				</div>
-			</div>
-			<div class="comment-cont">
-				<div class="user-info">
-					<p class="username"><a href="#">Username</a> said:</p>
-				</div>
-				<div class="comment">
-					<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis ex veniam quibusdam quod consequuntur.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<footer>
-	<div class="container">
-		<hr />
-		<p class="footer-text pull-right">Copyright 2013</p>
-	</div>
-</footer>
-<script type="text/template" id="quote-slug-template">
-		<div class="quote-slug">
-			<h4><span><%= quoteSlug %></span></h4>
-			<cite><i>From: <%= articleTitle %></i></cite>
-		</div>
-		<div class="comment-slug"><%= commentSlug %></div>
-</script>
 
 {% endblock %}
 

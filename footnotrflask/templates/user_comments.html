@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{%- block head %}
+{{ super() }}
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	window.quotesList = new QuoteSlugs();
+
+	quotesList.userId = '{{ user_id }}';
+
+	var quoteSlugList = new QuoteSlugListView({ collection: quotesList });
+
+	quotesList.fetch({ success:function() {
+		console.log("fetch call succeeded");
+		quoteSlugList.render();
+		
+		firstAnnotation = quoteSlugList.collection.first();
+		$('#username-header').html(firstAnnotation.get('username'));
+		$('h4 span:first').addClass('selected');
+		window.currentAnnotation = new AnnotationDetailView({ model:firstAnnotation });
+		currentAnnotation.render();
+
+	}});
+
+});
+
+</script>
+{%- endblock %}
+
+{%- block style %}
+{{ super() }}
+{% endblock %}
+
+{%- block body_content %}
+<header>
+	<div class="container">
+		<div class="masthead">
+			<div class="pull-right">
+				<form id="login-form" class="form-inline" method="post" action="/login">
+				    <input type="text" id="username" placeholder="Username" class="input-small">
+				    <input type="text" id="password" placeholder="Password" class="input-small">
+				    <button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<h1 class="logo">Footnotr</h1>
+			<small class="muted"><em>The Social PDF Annotator</em></small>
+			<hr>
+		</div>
+	</div>
+</header>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span4 drop-shadow" id="left-column">
+			<h3>
+				Comments by <span id="username-header"></span>
+			</h3>
+			<ul class="unstyled" id="quote-summaries">
+			</ul>
+		</div>
+		<div class="span8 drop-shadow curled" id="right-column">
+			<div class="quote-detail">
+				<div id="full-blockquote">
+				</div>
+				<div id="comment-thread">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/template" id="quote-slug-template">
+		<div class="quote-slug">
+			<h4><span>&quot;<%= quoteSlug %></span></h4>
+			<cite><i>From: <%= articleTitle %></i></cite>
+		</div>
+		<div class="comment-slug"><%= commentSlug %></div>
+</script>
+<script type="text/template" id="article-blockquote-template">
+	<blockquote>
+		<h1 class="text-center"><i class="icon-quote-left pull-left"></i> <%= fullQuoteText %> <i class="icon-quote-right pull-right"></i></h1>
+		<cite><%= articleTitle %> </cite>
+	</blockquote>
+</script>
+<script type="text/template" id="comment-template">
+	<div class="user-info">
+		<p class="username"><a href="/user-comments/<%= userName %>/"><%= userName %></a> said:</p>
+	</div>
+	<div class="comment">
+		<p class="comment-text"><%= commentText %></p>
+	</div>
+</script>
+
+{% endblock %}

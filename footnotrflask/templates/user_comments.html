@@ -17,7 +17,8 @@ $(document).ready(function(){
 		quoteSlugList.render();
 		
 		firstAnnotation = quoteSlugList.collection.first();
-		$('#username-header').html(firstAnnotation.get('username'));
+		//FIXME: This doesn't work for urls via /user-comments/integer/
+		$('#username-header').html(document.location.pathname.split('/')[2]);
 		$('h4 span:first').addClass('selected');
 		window.currentAnnotation = new AnnotationDetailView({ model:firstAnnotation });
 		currentAnnotation.render();

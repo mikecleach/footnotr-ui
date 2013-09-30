@@ -6,4 +6,5 @@ share/
 local_settings.py
 build/
 include/
+venv/
 .Python

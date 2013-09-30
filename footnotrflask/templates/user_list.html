@@ -5,6 +5,22 @@
 <script type="text/javascript">
 $(document).ready(function(){
 
+	window.usersList = new UserSlugs();
+
+	//quotesList.userId = '{{ user_id }}';
+
+	var userSlugList = new UserSlugListView({ collection: usersList });
+
+	usersList.fetch({ success:function() {
+		console.log("fetch call succeeded");
+		userSlugList.render();
+		$('.user-summary').click(function () {
+
+			$(this).find('a')[0];
+		});
+
+
+	}});
 
 });
 
@@ -34,26 +50,45 @@ $(document).ready(function(){
 </header>
 <div class="container-fluid">
 	<div class="row-fluid">
-		<div class="span4 drop-shadow" id="left-column">
+		<div class="span3 drop-shadow" id="left-column">
 			<h3>
 				Recent Commenters
 			</h3>
 			<ul class="unstyled" id="user-summaries">
 			</ul>
 		</div>
-		<div class="span8 drop-shadow curled" id="right-column">
-
+		<div class="span9 drop-shadow curled" id="hero-container">
+		<div class="hero-unit">
+			<h2>Footnotr is a social PDF annotation and comment system for iOS.</h2>
+			<p>Footnotr combines annotation capabilities with a social mindframe. Anyone with a copy of a document can see all annotations and comments left by other users. Error corrections, explanations, and improvements by way of annotation means documents never become obselete.</p>
+			<p>Start getting the best version of your documents. Get Footnotr.</p>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">
+				<h3>Highlight Documents</h3>
+				<p>A simple tap begins highlighting. No more yellow ink!</p>
+			</div>
+			<div class="span4">
+				<h3>Comment On Highlights</h3>
+				<p>Leave comments on a highlight to help explain, fix, or ask questions about a passage.</p>
+			</div>
+			<div class="span4">
+				<h3>Vote For Strong Content</h3>
+				<p>Vote on useful comments to bubble them up so you get the best info immediately.</p>
+			</div>
+		</div>
 		</div>
 	</div>
 </div>
 
-
-<script type="text/template" id="quote-slug-template">
-		<div class="quote-slug">
-			<h4><span>&quot;<%= quoteSlug %></span></h4>
-			<cite><i>From: <%= articleTitle %></i></cite>
+<script type="text/template" id="user-slug-template">
+		<div class="user-info">
+		<p class="username"><a href="/user-comments/<%= userName %>/"><%= userName %></a> said:</p>
 		</div>
-		<div class="comment-slug"><%= commentSlug %></div>
+		<div class="comment-slug">"<%= commentSlug %>"</div>
+		<br/>
+		<p>about: <cite><i><%= articleTitle %></i></cite></p>
+		
 </script>
 <script type="text/template" id="article-blockquote-template">
 	<blockquote>

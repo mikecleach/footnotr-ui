@@ -26,7 +26,7 @@ $(document).ready (function(){
 
 	window.QuoteSlugs = Backbone.Collection.extend({
 		
-		url: function() { return "http://127.0.0.1:8000/user-comments/" + this.userId + "/"; },
+		url: function() { return "http://footnotr.herokuapp.com/user-comments/" + this.userId + "/"; },
 
 		model: Annotation,
 
@@ -157,7 +157,56 @@ $(document).ready (function(){
 	});
 
 
+window.UserSlugView = Backbone.View.extend({
 
+
+		initialize: function() {
+			this.model.on('change', this.render, this);
+		},
+
+		tagName: 'li',
+
+		className: 'user-summary',
+
+		render: function () {
+			var userSummaryTemplate = $('#user-slug-template').html();
+			var modelObj = {
+				articleTitle: this.model.get('article'),
+				commentSlug: this.model.get('comment').split(" ").splice(0,12).join(" ") + "...", //TODO: only get 1st n words
+				userName: this.model.get('comments_username')
+				};
+
+			var templatedHtml  = _.template(userSummaryTemplate, modelObj);
+			$(this.el).html(templatedHtml);
+
+			return this;
+		}
+
+	});
+
+window.UserSlugListView = Backbone.View.extend({
+
+	el: $('#left-column ul#user-summaries'),
+
+	render: function() {
+		this.collection.each(function(userSlug) {
+
+			var usView = new UserSlugView({ model:userSlug });
+			$('#left-column ul').append(usView.render().el);
+		});
+		
+	}
+});
+
+window.UserSlugs = Backbone.Collection.extend({
+
+	url: function() { return "http://footnotr.herokuapp.com/latest-users/"; },
+
+	model: Annotation,
+
+	userId: ""
+
+});
 
 
 });

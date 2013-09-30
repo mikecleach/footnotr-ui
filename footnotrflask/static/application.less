@@ -14,6 +14,10 @@ Olive:#B2AB21
 
 // Mixins
 
+.min-height(@hgt:0px) {
+	min-height:@hgt;
+}
+
 div.quote-slug {
 	font-size:large;
 }
@@ -88,6 +92,10 @@ div.quote-slug {
 
 a {
 	color:darken(#2EC3FF,10%);
+}
+
+h3,h2 {
+	text-shadow:2px 2px 1px #CCC;
 }
 
 //Semantic Page Styles
@@ -165,13 +173,45 @@ div.masthead {
 				font-size:small;
 			}
 		}
-	}	
+
+	}
+
+	li.user-summary {
+	
+		min-height:100px;
+		margin:8px 8px 8px 12px;
+		border-bottom:solid 1px black;
+		padding-bottom:8px;
+		
+		&:first-child {
+			border-top:solid 1px black;
+		};
+
+		&:last-child {
+			border-bottom:none;
+		};
+
+		.user-info {
+			margin-top:8px;
+		}
+		
+		.user-slug {
+			margin-bottom:8px;
+			
+			}
+			
+			cite {
+				font-size:small;
+			}
+		}
+
 }
 
 #right-column {
 	
 	background-color:#F8F8F8;
-	min-height: 750px;
+	.min-height(750px);
+
 	.quote-detail {
 	
 		blockquote {
@@ -192,45 +232,68 @@ div.masthead {
 			}	
 		}
 
-			#comment-thread {
+		#comment-thread {
 		
-		.bdr-rad(7px);
-		overflow:scroll;
-		max-height:500px;
-		
-		.comment-cont {
+			.bdr-rad(6px);
+			overflow:scroll;
+			max-height:500px;
 			
-			.bdr-rad(7px);
-			border:1px solid #888888;
-			
-			&:last-child {
-				margin-bottom:8px;
-			}
-			
-			div {
+			.comment-cont {
 				
-				&.user-info {
-					
-					.username {
-						padding:8px 0px 0px 32px;
-						font-size:large;
-
-					}
+				.bdr-rad(6px);
+				border:1px solid #888888;
+				
+				&:last-child {
+					margin-bottom:8px;
 				}
-			
-				&.comment {
-					.comment-text {
-						padding:0px 8px 8px 12px;
+				
+				div {
 					
+					&.user-info {
+						
+						.username {
+							padding:8px 0px 0px 32px;
+							font-size:large;
+
+						}
+					}
+				
+					&.comment {
+						.comment-text {
+							padding:0px 8px 8px 12px;
+						
+						}
 					}
 				}
 			}
 		}
 	}
-		
-	}
-	
+}
 
+#hero-container {
+
+	background-color: #F8F8F8;
+
+	div.hero-unit {
+		
+		box-shadow: inset -2px -2px 7px 2px #777;
+	}
+
+	div.row-fluid {
+		
+		div.span4 {
+			.bdr-rad(6px);
+			background-color: #eee;
+			box-shadow: inset -2px -2px 5px 2px #777;
+			
+			h3 {
+				text-align:center;
+			}
+			p {
+				padding-left:4px;
+			}
+		}
+	}
 }
 
 footer {

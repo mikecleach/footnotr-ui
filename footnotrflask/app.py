@@ -4,6 +4,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager
 
 
+
 app = Flask(__name__)
 #app.config.from_object('config.Configuration')
 
@@ -19,3 +20,8 @@ lm = LoginManager()
 lm.init_app(app)
 
 Bootstrap(app)
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
